@@ -16,11 +16,15 @@ import Header from "./components/header.vue"
   .main {
     width: 80%;
     margin: 0 auto;
+    max-width: 1000px;
   }
 
-  @media (max-width: 1024px) {
+
+    @media (max-width: 650px) {
     .main {
       width: 95%;
     }
-}
+  }
+
+  
 </style>
