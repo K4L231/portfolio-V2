@@ -14,9 +14,8 @@ export default {
         }
     }
 }
-
-
 </script>
+
 
 <template>
     <div class="header">
@@ -53,43 +52,36 @@ export default {
     </div>
 
 
-
     <div class="hamburger-menu" v-if="burger">
-        <div class="burger-link" @click="show"><a>Home</a></div>
-        <div class="burger-link" ><a>GitHub</a></div>
-        <div class="burger-link" @click="burgerExpand = !burgerExpand">
-            <a>Contacts<img :class="{ 'arrow' : burgerExpand }" src="https://img.icons8.com/ios/16/000000/expand-arrow--v3.png"/></a>
-                <div v-if="burgerExpand" style="margin-top: 10px">
-                    <div class="info">
+        <a href="" class="burger-link">Home</a>
+        <a href="https://github.com/K4L231" target="_blank" class="burger-link" >GitHub</a>
+        <a class="burger-link" @click="burgerExpand = !burgerExpand">
+            Contacts<img :class="{ 'arrow' : burgerExpand }" class="expand-arrow" src="https://img.icons8.com/ios/16/000000/expand-arrow--v3.png"/></a>
+                <div v-if="burgerExpand">
+                    <div class="info burger-expand">
                         <h2><b>Contacts</b></h2>
                         <p>Ways to contact me</p>
                     </div>
-                    <div class="info details">
+                    <div class="info details burger-expand">
                         <h2>📧 Gmail</h2>
                         <p>matasalzo@gmail.com</p>
                     </div>
-                    <div class="info details">
+                    <div class="info details burger-expand">
                         <h2>💣 Discord</h2>
                         <p>K4L#0415</p>
                     </div>
                 </div>
-        </div>
-
         
     </div>
-
-
 </template>
 
 <style scoped>
-    * {
-        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    }
+
     a{
         text-decoration: none;
     }
-
     .header {
+        margin-top: 20px;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -139,6 +131,8 @@ export default {
         display: flex;
         position: relative;
 
+        border: 3px solid transparent;
+
     }
 
     .link .expanded {
@@ -165,6 +159,7 @@ export default {
         line-height: 40px;
         width: 100%;
         text-align: center;
+        color: #2D3748;
 
         padding-left: 20px;
         padding-right: 20px;
@@ -192,13 +187,13 @@ export default {
     .info.details {
         border: none;
         padding-top: 10px;
-        margin-bottom: 0px;
     }
     .info.details h2{
         font-size: 14px;
     }
     .info.details p{
         font-size: 14px;
+        margin-bottom: 0px;
     }
     .link.border {
         border: 3px solid #AA8ED6;
@@ -224,7 +219,7 @@ export default {
     .hamburger-menu {
         position: absolute;
         width: 250px;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         right: 0px;
         display: none;
         flex-direction: column;
@@ -232,7 +227,7 @@ export default {
         padding-right: 20px;
         
         padding-top: 5px;
-        padding-bottom: 5px;
+        padding-bottom: 10px;
 
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -257,20 +252,27 @@ export default {
         display: flex;
         flex-direction: row;
     }
-    .burger-link img {
-        height: 21px;
+
+    .info.burger-expand {
         margin-left: 15px;
+        background-color: #FFFFFF;
     }
     .burger-link:hover {
         background-color: #aa8ed62d;
         cursor: pointer;
     }
     .arrow {
+        
         -webkit-transform:rotate(270deg);
         -moz-transform: rotate(270deg);
         -ms-transform: rotate(270deg);
         -o-transform: rotate(270deg);
         transform: rotate(270deg);
+    }
+    .expand-arrow {
+        height: 14px;
+        margin-left: 15px;
+
     }
 
     @media (max-width: 650px) {
